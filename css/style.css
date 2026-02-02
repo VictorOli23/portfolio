@@ -8,7 +8,7 @@
     --whatsapp: #25d366;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 body { font-family: 'Inter', sans-serif; background-color: var(--dark-bg); color: var(--text-main); line-height: 1.6; }
 
 .container { padding: 80px 20px; max-width: 1100px; margin: auto; }
@@ -22,26 +22,44 @@ nav { display: flex; justify-content: space-between; padding: 15px 5%; align-ite
 nav ul { display: flex; list-style: none; }
 nav ul li a { color: var(--text-main); text-decoration: none; margin-left: 20px; font-size: 0.9rem; }
 
-/* Hero & Profile (O CÍRCULO) */
-.hero { min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 80px; }
+/* Hero Section (ESTABILIZAÇÃO DA FOTO) */
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 80px; }
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
 .profile-container {
-    width: 200px; height: 200px; 
-    margin: 0 auto 25px; 
+    width: 200px; 
+    height: 200px; 
+    margin-bottom: 25px; 
     border-radius: 50%; 
     border: 5px solid var(--primary);
-    overflow: hidden; /* Garante o círculo */
-    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
     background: var(--card-bg);
+    box-shadow: 0 0 25px rgba(10, 132, 255, 0.3);
 }
-.profile-img { width: 100%; height: 100%; object-fit: cover; } /* Foto sem distorção */
+
+.profile-img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Recorta a foto para o círculo sem achatar */
+    display: block;
+}
 
 .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
 .subtitle { color: var(--primary); font-weight: 600; margin-bottom: 30px; }
 
-/* Botões de Contato (TAMANHOS IGUAIS) */
+/* Botões de Contato (IGUAIS) */
 .social-links { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
 .contact-btn {
-    width: 160px; /* Largura fixa para igualar */
+    width: 170px; /* Largura ideal para simetria */
     padding: 12px 0;
     border-radius: 8px;
     text-decoration: none;
@@ -54,25 +72,27 @@ nav ul li a { color: var(--text-main); text-decoration: none; margin-left: 20px;
 .whatsapp { background: var(--whatsapp); }
 .contact-btn:hover { transform: translateY(-3px); opacity: 0.9; }
 
-/* Grid Sobre e Experiência */
+/* Sobre e Experiência */
 .section-title { text-align: center; margin-bottom: 50px; font-size: 2rem; color: var(--primary); }
 .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; }
 .about-text p { margin-bottom: 20px; text-align: justify; color: var(--text-dim); }
 .experience-card { background: var(--card-bg); padding: 30px; border-radius: 15px; border-top: 4px solid var(--primary); height: fit-content; }
-.exp-detail { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 15px; }
+.exp-detail { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 15px; line-height: 1.5; }
 
 /* Projetos */
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.project-card { background: var(--card-bg); padding: 30px; border-radius: 15px; transition: 0.3s; }
-.project-card:hover { border: 1px solid var(--primary); }
+.project-card { background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid transparent; transition: 0.3s; }
+.project-card:hover { border-color: var(--primary); }
+.project-card strong { color: var(--primary); }
 .project-link { color: var(--primary); text-decoration: none; font-weight: 700; margin-top: 15px; display: block; }
 
 footer { text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.8rem; }
 
-/* Responsividade Mobile */
+/* Mobile */
 @media (max-width: 850px) {
     .about-grid { grid-template-columns: 1fr; }
     nav ul { display: none; }
     .hero h1 { font-size: 1.8rem; }
     .profile-container { width: 160px; height: 160px; }
+    .contact-btn { width: 150px; }
 }
