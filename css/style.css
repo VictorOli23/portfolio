@@ -8,7 +8,12 @@
     --whatsapp: #25d366;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    scroll-behavior: smooth; 
+}
 
 body {
     font-family: 'Inter', sans-serif;
@@ -17,10 +22,17 @@ body {
     line-height: 1.6;
 }
 
-.container { padding: 80px 20px; max-width: 1000px; margin: auto; }
-.bg-alt { background-color: #0b1120; }
+.container { 
+    padding: 80px 20px; 
+    max-width: 1000px; 
+    margin: auto; 
+}
 
-/* Navigation */
+.bg-alt { 
+    background-color: #0b1120; 
+}
+
+/* Header & Navegação */
 header {
     background: rgba(15, 23, 42, 0.95);
     backdrop-filter: blur(10px);
@@ -29,81 +41,216 @@ header {
     z-index: 1000;
     border-bottom: 1px solid #334155;
 }
-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; max-width: 1200px; margin: auto; }
+
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 5%; 
+    max-width: 1200px; 
+    margin: auto; 
+}
+
 .logo { font-size: 1.5rem; font-weight: 700; }
 .logo span { color: var(--primary); }
+
 nav ul { display: flex; list-style: none; }
-nav ul li a { color: var(--text-main); text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: 0.3s; }
+nav ul li a { 
+    color: var(--text-main); 
+    text-decoration: none; 
+    margin-left: 20px; 
+    font-size: 0.9rem; 
+    transition: 0.3s; 
+}
 nav ul li a:hover { color: var(--primary); }
 
-/* Hero & Profile Photo */
-.hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+/* Seção Hero - CORREÇÃO DA IMAGEM E SOBREPOSIÇÃO */
+.hero { 
+    min-height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    padding-top: 100px; /* Garante que o menu não cubra a foto */
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.profile-container {
+    margin-bottom: 20px;
+}
 
 .profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid var(--primary);
-    object-fit: cover;
-    margin-bottom: 20px;
-    box-shadow: 0 0 20px rgba(10, 132, 255, 0.4);
+    width: 180px;            /* Tamanho fixo para não bugar o layout */
+    height: 180px;           /* Mantém proporção 1:1 */
+    border-radius: 50%;      /* Recorte circular */
+    border: 4px solid var(--primary);
+    object-fit: cover;       /* Garante que o rosto não distorça */
+    box-shadow: 0 0 25px rgba(10, 132, 255, 0.3);
+    display: block;
 }
 
 .profile-icon-fallback {
-    width: 120px; height: 120px;
+    width: 150px; height: 150px;
     background: var(--card-bg);
     border: 3px solid var(--primary);
     border-radius: 50%;
-    margin: 0 auto 20px auto;
-    align-items: center; justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     font-size: 3.5rem; color: var(--primary);
 }
 
-.hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
-.subtitle { color: var(--accent); margin-bottom: 25px; font-weight: 600; }
+.hero h1 { 
+    font-size: 2.2rem; 
+    margin-bottom: 10px; 
+    line-height: 1.2;
+}
 
-/* Buttons & Links */
-.social-links { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 30px; }
-.social-links a { color: var(--text-main); font-size: 1.8rem; transition: 0.3s; }
-.social-links a:hover { color: var(--primary); }
+.subtitle { 
+    color: var(--accent); 
+    margin-bottom: 25px; 
+    font-weight: 600; 
+}
+
+/* Botões de Contato */
+.social-links { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 15px; 
+    margin-bottom: 30px; 
+}
 
 .whatsapp-btn {
     background-color: var(--whatsapp);
     color: white !important;
     padding: 10px 20px;
     border-radius: 50px;
-    font-size: 1rem !important;
+    font-weight: 700;
+    text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-weight: 600;
+    transition: 0.3s;
 }
-.whatsapp-btn:hover { background-color: #128c7e; transform: translateY(-2px); }
 
-.btn { padding: 12px 30px; background: var(--primary); color: white; text-decoration: none; border-radius: 5px; font-weight: 600; transition: 0.3s; }
-.btn:hover { background: #0070e0; transform: translateY(-3px); }
+.whatsapp-btn:hover {
+    background-color: #128c7e;
+    transform: scale(1.05);
+}
 
-/* Content Sections */
-.section-title { text-align: center; margin-bottom: 50px; font-size: 2rem; color: var(--primary); }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-.about-text p { margin-bottom: 15px; color: var(--text-dim); text-align: justify; }
-.experience-card { background: var(--card-bg); padding: 25px; border-radius: 12px; border-left: 5px solid var(--primary); }
-.exp-detail { font-size: 0.85rem; margin-top: 10px; color: var(--text-dim); }
+.btn { 
+    padding: 12px 30px; 
+    background: var(--primary); 
+    color: white;
+    text-decoration: none; 
+    border-radius: 5px; 
+    font-weight: 600; 
+    transition: 0.3s; 
+}
 
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; }
-.skill-item { background: var(--card-bg); padding: 20px; text-align: center; border-radius: 10px; transition: 0.3s; }
-.skill-item i { font-size: 2rem; color: var(--primary); margin-bottom: 10px; display: block; }
-.skill-item span { font-size: 0.9rem; font-weight: 600; }
+.btn:hover { 
+    background: #0070e0; 
+    transform: translateY(-3px); 
+}
 
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.project-card { background: var(--card-bg); padding: 25px; border-radius: 12px; transition: 0.3s; border: 1px solid #334155; }
-.project-card:hover { transform: translateY(-5px); border-color: var(--primary); }
-.project-card strong { color: var(--primary); }
-.project-link { color: var(--primary); text-decoration: none; font-weight: 600; margin-top: 15px; display: block; }
+/* Grid de Conteúdo */
+.section-title { 
+    text-align: center; 
+    margin-bottom: 50px; 
+    font-size: 2rem; 
+    color: var(--primary); 
+}
 
-footer { text-align: center; padding: 40px; border-top: 1px solid #334155; font-size: 0.8rem; color: var(--text-dim); }
+.about-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px; 
+}
 
+.experience-card { 
+    background: var(--card-bg); 
+    padding: 25px; 
+    border-radius: 12px; 
+    border-left: 5px solid var(--primary); 
+}
+
+.exp-detail {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-top: 10px;
+}
+
+/* Habilidades & Certificações */
+.skills-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+    gap: 15px; 
+}
+
+.skill-item { 
+    background: var(--card-bg); 
+    padding: 20px; 
+    text-align: center; 
+    border-radius: 10px; 
+}
+
+.skill-item i { 
+    font-size: 1.8rem; 
+    color: var(--primary); 
+    margin-bottom: 10px; 
+    display: block; 
+}
+
+/* Projetos */
+.projects-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px; 
+}
+
+.project-card { 
+    background: var(--card-bg); 
+    padding: 25px; 
+    border-radius: 12px; 
+    border: 1px solid #334155;
+    transition: 0.3s; 
+}
+
+.project-card:hover { 
+    border-color: var(--primary);
+    transform: translateY(-5px); 
+}
+
+.project-card strong {
+    color: var(--accent);
+}
+
+.project-link { 
+    color: var(--primary); 
+    text-decoration: none; 
+    font-weight: 600; 
+    margin-top: 15px; 
+    display: block; 
+}
+
+/* Footer */
+footer { 
+    text-align: center; 
+    padding: 40px; 
+    border-top: 1px solid #334155; 
+    color: var(--text-dim); 
+    font-size: 0.8rem;
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
     .about-grid { grid-template-columns: 1fr; }
     nav ul { display: none; }
+    .hero h1 { font-size: 1.8rem; }
+    .profile-img { width: 150px; height: 150px; }
 }
