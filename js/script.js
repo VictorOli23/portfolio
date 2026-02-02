@@ -1,4 +1,4 @@
-// Scroll Suave para navegação
+// Scroll suave
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -8,5 +8,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Log de boas-vindas no console (Estilo NOC)
-console.log("VH.tech Portfolio System Online...");
+console.log("Portfólio Victor Henrique Online.");
